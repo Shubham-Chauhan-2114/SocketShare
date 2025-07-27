@@ -1,4 +1,5 @@
-# PeerLink - P2P File Sharing Application
+
+# SocketShare - P2P File Sharing Application
 
 PeerLink is a peer-to-peer file sharing application that allows users to share files directly between devices using a simple invite code system.
 
@@ -210,3 +211,6 @@ Options include:
 ## License
 
 MIT
+
+
+
