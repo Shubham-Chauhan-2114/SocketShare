@@ -246,6 +246,7 @@ public class FileController {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             Headers headers = exchange.getResponseHeaders();
+            
             headers.add("Access-Control-Allow-Origin", "*");
             
             if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
@@ -281,6 +282,7 @@ public class FileController {
                         }
                         
                         String header = headerBaos.toString().trim();
+                        System.out.println("DEBUG: Received Header -> '" + header + "'");
                         if (header.startsWith("Filename: ")) {
                             filename = header.substring("Filename: ".length());
                         }
