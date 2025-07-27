@@ -56,7 +56,7 @@ public class FileController {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             Headers headers = exchange.getResponseHeaders();
-            headers.add("Access-Control-Allow-Origin", "*");
+            headers.add("Access-Control-Allow-Origin", "https://socket-share.vercel.app/");
             headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
             headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization");
             
