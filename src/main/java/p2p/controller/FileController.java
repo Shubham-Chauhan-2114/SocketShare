@@ -59,6 +59,7 @@ public class FileController {
             headers.add("Access-Control-Allow-Origin", "https://socket-share.vercel.app/");
             headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
             headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization");
+            headers.add("Access-Control-Expose-Headers", "Content-Disposition");
             
             if (exchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
                 exchange.sendResponseHeaders(204, -1);
@@ -294,7 +295,8 @@ public class FileController {
                     
                     headers.add("Content-Disposition", "attachment; filename=\"" + filename + "\"");
                     headers.add("Content-Type", "application/octet-stream");
-                    
+                    headers.add("Access-Control-Expose-Headers", "Content-Disposition");
+
                     exchange.sendResponseHeaders(200, tempFile.length());
                     try (OutputStream os = exchange.getResponseBody();
                          FileInputStream fis = new FileInputStream(tempFile)) {
