@@ -308,6 +308,7 @@ public class FileController {
                     }
                     
                     tempFile.delete();
+                    fileSharer.completeShare(port);
                     
                 } catch (IOException e) {
                     System.err.println("Error downloading file from peer: " + e.getMessage());

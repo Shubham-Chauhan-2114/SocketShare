@@ -45,6 +45,15 @@ public class FileSharer {
         }
     }
 
+    public void completeShare(int port) {
+        if (availableFiles.containsKey(port)) {
+            String filePath = availableFiles.get(port);
+            new File(filePath).delete();
+            availableFiles.remove(port);
+            System.out.println("Completed share for port " + port + ". File deleted.");
+        }
+    }
+
     private static class FileSenderHandler implements Runnable {
         private final Socket clientSocket;
         private final String filePath;
